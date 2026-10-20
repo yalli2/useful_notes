@@ -153,7 +153,7 @@
         e.preventDefault(); svg.setPointerCapture(e.pointerId); const [x, y] = pt(e); sx = x; sy = y;
         if (tool === 'dot') { cur = { t: 'd', c: color, cx: x, cy: y, r: Math.max(3, width * 1.5) }; }
         else if (tool === 'text') { const t = textIn.value.trim(); if (!t) { textIn.focus(); cur = null; return; } cur = { t: 't', c: color, x, y, s: t, z: 18 + width * 3 }; }
-        else if (tool === 'pen' || tool === 'hl') cur = tool === 'hl' ? { t: 'p', c: PAL.yellow, w: 18, a: 0.5, q: [x, y] } : { t: 'p', c: color, w: width, q: [x, y] };
+        else if (tool === 'pen' || tool === 'hl') cur = tool === 'hl' ? { t: 'p', c: color, w: 18, a: 0.45, q: [x, y] } : { t: 'p', c: color, w: width, q: [x, y] };
         else cur = shape(x, y);
         curNode = ST.opNode(cur); layer.appendChild(curNode);
       });
